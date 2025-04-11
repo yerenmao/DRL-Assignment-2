@@ -341,6 +341,25 @@ class MineGame2048Env:
             row = self.board[i : i + 4]
             print(" ".join(f"{v:3d}" for v in row))
 
+class Transform:
+    def rot0(v):
+        return v
+
+    def rot90(v):
+        return (3, 7, 11, 15, 2, 6, 10, 14, 1, 5, 9, 13, 0, 4, 8, 12)[v]
+
+    def rot180(v):
+        return (15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)[v]
+
+    def rot270(v):
+        return (12, 8, 4, 0, 13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3)[v]
+
+    def flip(v):
+        return (3, 2, 1, 0, 7, 6, 5, 4, 11, 10, 9, 8, 15, 14, 13, 12)[v]
+
+    def rots():
+        return (Transform.rot0, Transform.rot90, Transform.rot180, Transform.rot270)
+
 class NTupleApproximator:
     def __init__(self, board_size, patterns):
         """
