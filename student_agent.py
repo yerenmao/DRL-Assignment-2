@@ -586,13 +586,21 @@ class TD_MCTS:
 
 patterns_6tuple = [
     # type 1:
-    (4, 5, 8, 9, 12, 13),
+    (0, 1, 2, 4, 5, 6),
     # type 2:
-    (5, 6, 9, 10, 13, 14),
+    (1, 2, 5, 6, 9, 13),
     # type 3:
-    (0, 4, 8, 9, 12, 13),
+    (0, 1, 2, 3, 4, 5),
     # type 4:
-    (1, 5, 9, 10, 13, 14),
+    (0, 1, 5, 6, 7, 10),
+    # type 5:
+    (0, 1, 2, 5, 9, 10),
+    # type 6:
+    (0, 1, 5, 9, 13, 14),
+    # type 7:
+    (0, 1, 5, 8, 9, 13),
+    # type 8:
+    (0, 1, 2, 4, 6, 10),
 ]
 
 approximator = NTupleApproximator(board_size=4, patterns=patterns_6tuple)
